@@ -19,9 +19,16 @@ export class ObservablesComponent {
 	readonly replaySubject$ = this.replaySubject.asObservable();
 
 	constructor() {
+		this.observableSubscribe();
 		this.subjectSubscribe();
 		this.vehaviorSubjectSubscribe();
 		this.replaySubjectSubscribe();
+	}
+
+	observableSubscribe() {
+		this.observable$.subscribe(num => console.log('Observable obsA', num));
+		this.observable$.subscribe(num => console.log('Observable obsB', num));
+		this.observable$.subscribe(num => console.log('Observable obsC', num));
 	}
 
 	subjectSubscribe() {
