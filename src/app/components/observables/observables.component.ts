@@ -24,7 +24,10 @@ export class ObservablesComponent implements OnInit {
   }
 
   subjectSubscribe() {
-    this.subject.subscribe(num => console.log('Subject subA', num));
     this.subject.next(1);
+    this.subject.subscribe(num => console.log('Subject subA', num));
+    this.subject.next(2);
+    this.subject.subscribe(num => console.log('Subject subB', num));
+    this.subject.next(3);
   }
 }
