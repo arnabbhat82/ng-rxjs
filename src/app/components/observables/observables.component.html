@@ -1,0 +1,7 @@
+<section>
+	observable$: {{ observable$ | async }}
+	<h2>For loop with async pipe</h2>
+	<div *ngFor="let item of observable$ | async">
+		{{ item }}
+	</div>
+</section>
