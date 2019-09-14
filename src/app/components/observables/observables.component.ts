@@ -11,7 +11,7 @@ export class ObservablesComponent implements OnInit {
   // Subject
   subject = new Subject<number>();
   // BehaviorSubject
-  behaviorSubject = new BehaviorSubject<number>(0);
+  behaviorSubject = new BehaviorSubject<number>(null);
 
   ngOnInit() {
     this.observableSubscribe();
