@@ -2,9 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { of, Subject, BehaviorSubject, ReplaySubject } from 'rxjs';
 
 @Component({
-	selector: 'app-observables',
-	templateUrl: './observables.component.html',
-	styleUrls: ['./observables.component.scss'],
+	template: '',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ObservablesComponent {
