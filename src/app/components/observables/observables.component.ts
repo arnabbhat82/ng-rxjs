@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { of, Subject, BehaviorSubject } from 'rxjs';
+import { of, Subject, BehaviorSubject, ReplaySubject } from 'rxjs';
 
 @Component({
   template: '',
@@ -12,11 +12,14 @@ export class ObservablesComponent implements OnInit {
   subject = new Subject<number>();
   // BehaviorSubject
   behaviorSubject = new BehaviorSubject<number>(null);
+  // ReplaySubject
+  replaySubject = new ReplaySubject<number>(3);
 
   ngOnInit() {
     this.observableSubscribe();
     this.subjectSubscribe();
     this.behaviorSubjectSubscribe();
+    this.replaySubjectSubscribe();
   }
 
   observableSubscribe() {
@@ -44,5 +47,20 @@ export class ObservablesComponent implements OnInit {
       console.log('behaviorSubject subB', num),
     );
     this.behaviorSubject.next(3);
+  }
+
+  replaySubjectSubscribe() {
+    this.replaySubject.next(-2);
+    this.replaySubject.next(-1);
+    this.replaySubject.next(0);
+    this.replaySubject.next(1);
+    this.replaySubject.subscribe(num =>
+      console.log('replaySubject subA', num),
+    );
+    this.replaySubject.next(2);
+    this.replaySubject.subscribe(num =>
+      console.log('replaySubject subB', num),
+    );
+    this.replaySubject.next(3);
   }
 }
