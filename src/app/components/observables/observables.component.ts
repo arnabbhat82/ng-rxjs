@@ -1,11 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { of, Subject, BehaviorSubject, ReplaySubject } from 'rxjs';
 
 @Component({
 	template: '',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ObservablesComponent {
+export class ObservablesComponent implements OnInit {
 	// Observable
 	readonly observable$ = of([1, 2, 3, 4, 5]);
 	// Subject
@@ -18,11 +18,11 @@ export class ObservablesComponent {
 	private readonly replaySubject = new ReplaySubject<number>();
 	readonly replaySubject$ = this.replaySubject.asObservable();
 
-	constructor() {
+	ngOnInit() {
 		this.observableSubscribe();
-		this.subjectSubscribe();
-		this.vehaviorSubjectSubscribe();
-		this.replaySubjectSubscribe();
+		// this.subjectSubscribe();
+		// this.vehaviorSubjectSubscribe();
+		// this.replaySubjectSubscribe();
 	}
 
 	observableSubscribe() {
